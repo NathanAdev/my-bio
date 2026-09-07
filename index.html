@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nathan A.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="profile card">
+      <!-- Save your transparent photo as pfp.png next to this file -->
+      <div class="avatar"><img src="pfp.png" alt="pfp"></div>
+      <h1>Nathan A.</h1>
+      <p class="tagline">Maker of things.</p>
+      <p class="lead">
+        AI tools, web apps, sometimes hardware. Documenting what works
+        <span class="soft">(and what doesn't).</span>
+        Follow to see what works, tips, and the latest in AI.
+      </p>
+
+      <!-- TODO: your YouTube + GitHub links -->
+      <nav class="links">
+        <a href="https://x.com/NathanAdev" target="_blank" rel="me noopener">X / Twitter</a>
+        <a href="#">YouTube</a>
+        <a href="#">GitHub</a>
+      </nav>
+
+      <div class="about">
+        <p class="about-label">About</p>
+        <p>Bio coming soon.</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <nav class="tabs">
+        <button data-tab="blog">Blog</button>
+        <button data-tab="apps" class="active">Apps</button>
+      </nav>
+
+      <div class="panel" id="blog" hidden>
+        <article class="post card">
+          <h3>Hey, I exist now.</h3>
+          <p class="date">September 7, 2026</p>
+          <p>Documenting my journey building software tools in public. Posts on design, what fails, what works, and occasional hot takes. Building (cool) things. Let's go.</p>
+        </article>
+      </div>
+
+      <div class="panel" id="apps">
+        <!-- TODO: add app cards here -->
+        <div class="empty card">Nothing here yet — building. Check back soon.</div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tabs button');
+    const panels = { blog: document.getElementById('blog'), apps: document.getElementById('apps') };
+    tabs.forEach(btn => btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.toggle('active', t === btn));
+      for (const [name, el] of Object.entries(panels)) el.hidden = name !== btn.dataset.tab;
+    }));
+  </script>
+</body>
+</html>
